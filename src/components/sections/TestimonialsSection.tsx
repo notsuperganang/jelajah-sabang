@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
-// Testimonials data
+// Tambahkan data testimonial hingga 15 entry
 const testimonials = [
   {
     id: 1,
@@ -49,6 +49,96 @@ const testimonials = [
     comment: "Dari snorkeling hingga hiking ke benteng bersejarah, Sabang offer everything! Tim JelajahSabang sangat helpful dan knowledgeable.",
     rating: 5,
     location: "Korea Selatan"
+  },
+  {
+    id: 6,
+    name: "David Miller",
+    role: "History Professor",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+    comment: "Benteng Anoi Itam dan peninggalan sejarah lainnya di Sabang sangat memukau. Panduan tur JelajahSabang sangat berpengetahuan tentang sejarah lokal.",
+    rating: 5,
+    location: "United Kingdom"
+  },
+  {
+    id: 7,
+    name: "Putri Andini",
+    role: "Solo Traveler",
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+    comment: "Perjalanan solo ke Sabang jadi sangat nyaman dengan bantuan JelajahSabang. Mereka sangat memperhatikan keamanan dan kenyamanan wisatawan.",
+    rating: 5,
+    location: "Yogyakarta, Indonesia"
+  },
+  {
+    id: 8,
+    name: "Hiroshi Tanaka",
+    role: "Culinary Expert",
+    avatar: "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=100&h=100&fit=crop&crop=face",
+    comment: "Sajian seafood di Sabang adalah yang terbaik! Segar dan dimasak dengan bumbu lokal yang khas. Food tour yang direkomendasikan JelajahSabang tidak mengecewakan.",
+    rating: 5,
+    location: "Japan"
+  },
+  {
+    id: 9,
+    name: "Anna Rodriguez",
+    role: "Family Traveler",
+    avatar: "https://images.unsplash.com/photo-1491349174775-aaafddd81942?w=100&h=100&fit=crop&crop=face",
+    comment: "Liburan keluarga terbaik! Anak-anak saya sangat menikmati melihat ikan-ikan berwarna di snorkeling spot. Paket family tour JelajahSabang sangat worth it.",
+    rating: 5,
+    location: "Mexico"
+  },
+  {
+    id: 10,
+    name: "Rafi Putra",
+    role: "Dive Instructor",
+    avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=100&h=100&fit=crop&crop=face",
+    comment: "Sebagai instruktur diving, saya sangat terkesan dengan keindahan bawah laut Sabang. Spot diving di sini layak masuk bucket list semua diver!",
+    rating: 5,
+    location: "Bali, Indonesia"
+  },
+  {
+    id: 11,
+    name: "Sophie Laurent",
+    role: "Artist & Photographer",
+    avatar: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=100&h=100&fit=crop&crop=face",
+    comment: "Pemandangan di Sabang adalah inspirasi sempurna untuk karya seni. Warna laut, langit, dan vegetasi di sini begitu hidup dan memukau.",
+    rating: 5,
+    location: "France"
+  },
+  {
+    id: 12,
+    name: "Jiang Wei",
+    role: "Business Traveler",
+    avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop&crop=face",
+    comment: "Saya mengadakan retreat perusahaan di resort yang direkomendasikan JelajahSabang. Fasilitas lengkap dengan pemandangan laut yang menenangkan.",
+    rating: 5,
+    location: "China"
+  },
+  {
+    id: 13,
+    name: "Maria Gonzalez",
+    role: "Marine Conservation Activist",
+    avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&crop=face",
+    comment: "Sangat senang melihat upaya konservasi di Sabang. Terumbu karang yang dilindungi menunjukkan hasil yang luar biasa. Program eco-tour JelajahSabang sangat edukatif.",
+    rating: 5,
+    location: "Spain"
+  },
+  {
+    id: 14,
+    name: "Thomas Anderson",
+    role: "Adventure Filmmaker",
+    avatar: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=100&h=100&fit=crop&crop=face",
+    comment: "Mendokumentasikan keindahan Sabang untuk film dokumenter kami. Tim JelajahSabang membantu kami menemukan spot-spot terbaik yang jarang dikunjungi wisatawan.",
+    rating: 5,
+    location: "Canada"
+  },
+  {
+    id: 15,
+    name: "Dewi Susilowati",
+    role: "Honeymoon Traveler",
+    avatar: "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?w=100&h=100&fit=crop&crop=face",
+    comment: "Bulan madu yang sempurna di Sabang! Suasana romantis, resort yang nyaman, dan sunset yang menakjubkan. Package honeymoon JelajahSabang sangat recommended!",
+    rating: 5,
+    location: "Surabaya, Indonesia"
   }
 ]
 
@@ -75,44 +165,54 @@ const itemVariants = {
 }
 
 const TestimonialsSection = () => {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  // Mengubah state untuk menyimpan page number bukan index
+  const [currentPage, setCurrentPage] = useState(0)
   const [isAutoplay, setIsAutoplay] = useState(true)
-
+  
+  // Jumlah review per page
+  const reviewsPerPage = 3
+  
+  // Total page
+  const totalPages = Math.ceil(testimonials.length / reviewsPerPage)
+  
   // Auto-slide functionality
   useEffect(() => {
     if (!isAutoplay) return
 
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+      setCurrentPage((prevPage) => (prevPage + 1) % totalPages)
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isAutoplay])
+  }, [isAutoplay, totalPages])
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index)
+  const goToPage = (page: number) => {
+    setCurrentPage(page)
     setIsAutoplay(false)
     // Resume autoplay after 10 seconds
     setTimeout(() => setIsAutoplay(true), 10000)
   }
 
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+  const nextPage = () => {
+    setCurrentPage((prevPage) => (prevPage + 1) % totalPages)
     setIsAutoplay(false)
     setTimeout(() => setIsAutoplay(true), 10000)
   }
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length)
+  const prevPage = () => {
+    setCurrentPage((prevPage) => (prevPage - 1 + totalPages) % totalPages)
     setIsAutoplay(false)
     setTimeout(() => setIsAutoplay(true), 10000)
   }
 
-  const visibleTestimonials = [
-    testimonials[currentIndex],
-    testimonials[(currentIndex + 1) % testimonials.length],
-    testimonials[(currentIndex + 2) % testimonials.length]
-  ]
+  // Mendapatkan review untuk page saat ini
+  const startIndex = currentPage * reviewsPerPage
+  const visibleTestimonials = testimonials.slice(startIndex, startIndex + reviewsPerPage)
+  
+  // Memastikan selalu ada 3 testimonial yang ditampilkan
+  while (visibleTestimonials.length < reviewsPerPage) {
+    visibleTestimonials.push(testimonials[visibleTestimonials.length % testimonials.length])
+  }
 
   return (
     <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
@@ -152,15 +252,15 @@ const TestimonialsSection = () => {
         {/* Testimonials */}
         <div className="relative">
           <motion.div
+            key={`testimonial-page-${currentPage}`} // Add key to force re-render
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
+            animate="visible"
             className="grid grid-cols-1 md:grid-cols-3 gap-8"
           >
             {visibleTestimonials.map((testimonial, index) => (
               <motion.div
-                key={`${testimonial.id}-${currentIndex}`}
+                key={testimonial.id}
                 variants={itemVariants}
                 className={`group ${index === 1 ? 'md:scale-105' : ''}`}
               >
@@ -211,7 +311,7 @@ const TestimonialsSection = () => {
 
           {/* Navigation Buttons */}
           <button
-            onClick={prevSlide}
+            onClick={prevPage}
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 lg:-translate-x-16 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -220,7 +320,7 @@ const TestimonialsSection = () => {
           </button>
           
           <button
-            onClick={nextSlide}
+            onClick={nextPage}
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 lg:translate-x-16 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,17 +329,18 @@ const TestimonialsSection = () => {
           </button>
         </div>
 
-        {/* Dots Indicator */}
+        {/* Dots Indicator - hanya tampilkan 5 dot untuk 5 halaman */}
         <div className="flex justify-center mt-12 space-x-2">
-          {testimonials.map((_, index) => (
+          {[...Array(totalPages)].map((_, index) => (
             <button
               key={index}
-              onClick={() => goToSlide(index)}
+              onClick={() => goToPage(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex
+                index === currentPage
                   ? 'bg-white scale-125'
                   : 'bg-white/40 hover:bg-white/60'
               }`}
+              aria-label={`Page ${index + 1}`}
             />
           ))}
         </div>
