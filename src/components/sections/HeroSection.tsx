@@ -15,13 +15,13 @@ const heroImages = [
   },
   {
     id: 2,
-    src: 'https://www.safariwisata.co.id/wp-content/uploads/2021/02/Pantai-Iboih-Sabang-7.jpg',
+    src: 'https://superlive.id/storage/superadventure/2018/06/28/f26447867e27.jpg',
     title: 'Pantai Iboih',
     subtitle: 'Surga snorkeling dan diving dengan terumbu karang eksotis'
   },
   {
     id: 3,
-    src: 'https://cdn.antaranews.com/cache/1200x800/2019/11/23/D8A59EEB-434E-4CEC-BD92-0642AC3B587B.jpeg',
+    src: 'https://cdn.idntimes.com/content-images/community/2019/04/47583974-286757875376269-6794581575839191778-n-1835e127e34f9c071b2006a85a71a277.jpg',
     title: 'Kilometer Nol Indonesia',
     subtitle: 'Monumen ikonik di ujung barat NKRI dengan pemandangan Samudera Hindia'
   }
