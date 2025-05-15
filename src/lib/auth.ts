@@ -1,11 +1,15 @@
-// src/lib/auth.ts
 import { NextAuthOptions } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import GoogleProvider from "next-auth/providers/google"
 import bcrypt from "bcryptjs"
 import { prisma } from "./prisma"
 
 export const authOptions: NextAuthOptions = {
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
     CredentialsProvider({
       name: "credentials",
       credentials: {
@@ -36,7 +40,6 @@ export const authOptions: NextAuthOptions = {
           return null
         }
 
-        // Return user dengan type any untuk avoid TypeScript issues
         return {
           id: user.id,
           email: user.email,
@@ -50,6 +53,32 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt"
   },
   callbacks: {
+    async signIn({ user, account }) {
+      if (account?.provider === "google") {
+        const existingUser = await prisma.user.findUnique({
+          where: { email: user.email! }
+        });
+
+        if (existingUser) {
+          // If user exists but was originally created with credentials
+          if (existingUser.password) {
+            throw new Error("Email already registered with password");
+          }
+          return true;
+        }
+
+        // Create new user if doesn't exist
+        await prisma.user.create({
+          data: {
+            email: user.email!,
+            name: user.name,
+            image: user.image,
+            role: "CUSTOMER"
+          }
+        });
+      }
+      return true;
+    },
     async jwt({ token, user }: any) {
       if (user) {
         token.role = user.role
@@ -62,9 +91,10 @@ export const authOptions: NextAuthOptions = {
         session.user.role = token.role
       }
       return session
-    },
+    }
   },
   pages: {
-    signIn: "/auth/signin"
+    signIn: "/auth/signin",
+    error: "/auth/error"
   }
 }

@@ -1,9 +1,11 @@
-// src/app/layout.tsx
+"use client"
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import AuthSessionProvider from "@/components/providers/SessionProvider";
+import { usePathname } from "next/navigation";
 
 const geist = Geist({
   variable: "--font-geist-sans",
@@ -15,36 +17,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "JelajahSabang - Explore the Beauty of Sabang",
-  description: "Discover beautiful destinations, accommodations, and culinary experiences in Sabang",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  
+  // Check if current path is auth page
+  const isAuthPage = pathname?.startsWith('/auth');
+
   return (
     <html lang="en">
       <body
         className={`${geist.variable} ${geistMono.variable} antialiased`}
       >
         <AuthSessionProvider>
-          <Navigation />
-          <main className="min-h-screen bg-gray-50">
+          {/* Show Navigation only on non-auth pages */}
+          {!isAuthPage && <Navigation />}
+          
+          <main className={`min-h-screen ${!isAuthPage ? 'bg-gray-50 pt-20' : ''}`}>
             {children}
           </main>
-          <footer className="bg-gray-800 text-white py-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center">
-                <p>&copy; 2025 JelajahSabang. All rights reserved.</p>
-                <p className="text-sm text-gray-400 mt-2">
-                  Explore the beauty of Sabang, Indonesia
-                </p>
-              </div>
-            </div>
-          </footer>
+          
+          {/* Show Footer only on non-auth pages */}
+          {!isAuthPage && <Footer />}
         </AuthSessionProvider>
       </body>
     </html>

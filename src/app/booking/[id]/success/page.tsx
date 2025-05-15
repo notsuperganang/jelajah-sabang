@@ -18,6 +18,20 @@ export default async function PaymentSuccessPage({ params }: PageProps) {
     notFound()
   }
 
+  // First, update the booking status to paid/confirmed
+  // This simulates the Midtrans webhook in sandbox mode
+  await prisma.booking.updateMany({
+    where: { 
+      id: params.id,
+      userId: (session.user as any).id,
+      paymentStatus: 'PENDING'
+    },
+    data: {
+      paymentStatus: 'PAID',
+      status: 'CONFIRMED'
+    }
+  })
+
   const booking = await prisma.booking.findUnique({
     where: { 
       id: params.id,
@@ -95,6 +109,12 @@ export default async function PaymentSuccessPage({ params }: PageProps) {
                 <div className="flex justify-between">
                   <span className="text-gray-600">Total Paid:</span>
                   <span className="font-medium text-green-600">{formatPrice(booking.totalPrice)}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-gray-600">Status:</span>
+                  <span className="font-medium text-green-600">
+                    {booking.status} - {booking.paymentStatus}
+                  </span>
                 </div>
               </div>
             </div>
