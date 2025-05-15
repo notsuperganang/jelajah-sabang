@@ -1,4 +1,3 @@
-// src/app/api/bookings/route.ts
 import { NextResponse } from "next/server"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/auth"
@@ -8,7 +7,12 @@ export async function POST(request: Request) {
   try {
     const session = await getServerSession(authOptions)
     
-    if (!session || !session.user || !(session.user as any).id) {
+    console.log("=== DEBUG SESSION ===")
+    console.log("Session:", JSON.stringify(session, null, 2))
+    console.log("Session user:", session?.user)
+    console.log("Session user ID:", (session?.user as any)?.id)
+    
+    if (!session || !session.user) {
       return NextResponse.json(
         { error: "Unauthorized" },
         { status: 401 }
@@ -21,6 +25,52 @@ export async function POST(request: Request) {
     if (!accommodationId || !checkIn || !checkOut || !totalPrice) {
       return NextResponse.json(
         { error: "Missing required fields" },
+        { status: 400 }
+      )
+    }
+
+    // Get userId - either from session or lookup by email
+    let userId = (session.user as any).id
+    console.log("Initial userId from session:", userId)
+    
+    if (!userId && session.user.email) {
+      console.log("⚠️ No user ID in session, looking up by email:", session.user.email)
+      const user = await prisma.user.findUnique({
+        where: { email: session.user.email }
+      })
+      
+      console.log("Found user in DB:", user)
+      
+      if (!user) {
+        return NextResponse.json(
+          { error: "User not found in database" },
+          { status: 404 }
+        )
+      }
+      
+      userId = user.id
+      console.log("✅ Found user ID:", userId)
+    }
+
+    console.log("Final userId to use:", userId)
+    
+    // Double check if this user actually exists in database
+    const userCheck = await prisma.user.findUnique({
+      where: { id: userId }
+    })
+    
+    console.log("User verification:", userCheck ? "EXISTS" : "NOT FOUND")
+    
+    if (!userCheck) {
+      return NextResponse.json(
+        { error: `User with ID ${userId} does not exist` },
+        { status: 400 }
+      )
+    }
+
+    if (!userId) {
+      return NextResponse.json(
+        { error: "Unable to identify user" },
         { status: 400 }
       )
     }
@@ -63,7 +113,7 @@ export async function POST(request: Request) {
     const booking = await prisma.booking.create({
       data: {
         accommodationId,
-        userId: (session.user as any).id,
+        userId, // Now we're sure this exists
         checkIn: new Date(checkIn),
         checkOut: new Date(checkOut),
         guestCount: guestCount || 1,

@@ -39,12 +39,23 @@ export default async function DestinasiPage() {
                             {featuredDestinations.map((destination: any) => (
                                 <Card key={destination.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                                     {/* Hero Image */}
-                                    <div className="h-64 md:h-80 bg-gradient-to-br from-blue-500 to-teal-600 relative">
-                                        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-                                            <div className="p-6 text-white">
-                                                <h3 className="text-2xl font-bold mb-2">{destination.name}</h3>
-                                                <p className="text-blue-100">📍 {destination.location}</p>
+                                    <div className="h-64 md:h-80 relative overflow-hidden bg-gray-200">
+                                        {destination.image ? (
+                                            <img
+                                                src={destination.image}
+                                                alt={destination.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-blue-500 to-teal-600 flex items-center justify-center">
+                                                <span className="text-white text-2xl font-bold text-center px-4">
+                                                    {destination.name}
+                                                </span>
                                             </div>
+                                        )}
+                                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                                            <h3 className="text-2xl font-bold text-white mb-2">{destination.name}</h3>
+                                            <p className="text-blue-100">📍 {destination.location}</p>
                                         </div>
                                     </div>
 
@@ -78,11 +89,24 @@ export default async function DestinasiPage() {
                             {otherDestinations.map((destination: any) => (
                                 <Card key={destination.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                                     {/* Image */}
-                                    <div className="h-48 bg-gradient-to-br from-green-400 to-blue-500 relative">
-                                        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                                            <h3 className="text-white text-lg font-semibold text-center px-4">
+                                    <div className="h-48 relative overflow-hidden bg-gray-200">
+                                        {destination.image ? (
+                                            <img
+                                                src={destination.image}
+                                                alt={destination.name}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        ) : (
+                                            <div className="w-full h-full bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                                                <span className="text-white text-lg font-semibold text-center px-4">
+                                                    {destination.name}
+                                                </span>
+                                            </div>
+                                        )}
+                                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                            <span className="text-white text-lg font-semibold text-center px-4">
                                                 {destination.name}
-                                            </h3>
+                                            </span>
                                         </div>
                                     </div>
 

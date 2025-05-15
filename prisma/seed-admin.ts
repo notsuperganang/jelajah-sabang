@@ -1,4 +1,3 @@
-// prisma/seed-admin.ts
 import { PrismaClient } from '@prisma/client'
 import { hashPassword } from '../src/lib/crypto'
 
@@ -6,16 +5,10 @@ const prisma = new PrismaClient()
 
 async function main() {
   try {
-    // Check if admin already exists
-    const existingAdmin = await prisma.user.findUnique({
+    // Delete existing admin if exists
+    await prisma.user.deleteMany({
       where: { email: 'admin@jelejahsabang.com' }
     })
-
-    if (existingAdmin) {
-      console.log('Admin already exists:', existingAdmin.email)
-      console.log('Admin role:', existingAdmin.role)
-      return
-    }
 
     // Hash password using our crypto function
     const hashedPassword = await hashPassword('admin123')

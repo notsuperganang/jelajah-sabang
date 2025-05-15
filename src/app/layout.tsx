@@ -36,7 +36,7 @@ export default function RootLayout({
           {/* Show Navigation only on non-auth pages */}
           {!isAuthPage && <Navigation />}
           
-          <main className={`min-h-screen ${!isAuthPage ? 'bg-gray-50 pt-20' : ''}`}>
+          <main className={`min-h-screen ${!isAuthPage && pathname !== '/' ? 'bg-gray-50 pt-20' : ''}`}>
             {children}
           </main>
           

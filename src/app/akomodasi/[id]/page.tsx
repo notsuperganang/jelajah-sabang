@@ -1,4 +1,3 @@
-// src/app/akomodasi/[id]/page.tsx
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import BookingForm from '@/components/BookingForm'
@@ -45,10 +44,25 @@ export default async function AccommodationDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left Column - Accommodation Details */}
           <div className="lg:col-span-2">
-            {/* Hero Image */}
-            <div className="h-96 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mb-8 relative">
-              <div className="absolute inset-0 bg-black bg-opacity-30 rounded-lg flex items-center justify-center">
-                <h1 className="text-4xl font-bold text-white text-center">
+            {/* Hero Image - PERBAIKAN: Hapus overlay yang menghalangi gambar */}
+            <div className="h-96 relative overflow-hidden rounded-lg mb-8 bg-gray-200">
+              {accommodation.image ? (
+                <img
+                  src={accommodation.image}
+                  alt={accommodation.name}
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                // Fallback for no image
+                <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                  <span className="text-white text-4xl font-bold text-center px-4">
+                    {accommodation.name}
+                  </span>
+                </div>
+              )}
+              {/* Overlay ringan hanya di bagian bawah untuk judul */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                <h1 className="text-4xl font-bold text-white text-left">
                   {accommodation.name}
                 </h1>
               </div>

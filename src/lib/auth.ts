@@ -80,14 +80,26 @@ export const authOptions: NextAuthOptions = {
       return true;
     },
     async jwt({ token, user }: any) {
+      // When user signs in, save user info to token
       if (user) {
+        token.id = user.id
         token.role = user.role
+      }
+      // For Google OAuth, we need to get the user ID from database
+      else if (token.email && !token.id) {
+        const dbUser = await prisma.user.findUnique({
+          where: { email: token.email }
+        })
+        if (dbUser) {
+          token.id = dbUser.id
+          token.role = dbUser.role
+        }
       }
       return token
     },
     async session({ session, token }: any) {
       if (token) {
-        session.user.id = token.sub
+        session.user.id = token.id
         session.user.role = token.role
       }
       return session

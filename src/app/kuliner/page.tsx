@@ -17,12 +17,12 @@ export default async function KulinerPage() {
 
   // Group by category
   const categorized = otherPlaces.reduce((acc: any, place: any) => {
-  if (!acc[place.category]) {
-    acc[place.category] = []
-  }
-  acc[place.category].push(place)
-  return acc
-}, {})
+    if (!acc[place.category]) {
+      acc[place.category] = []
+    }
+    acc[place.category].push(place)
+    return acc
+  }, {})
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
@@ -33,7 +33,7 @@ export default async function KulinerPage() {
             Kuliner Sabang
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Nikmati cita rasa autentik Sabang, dari makanan khas Aceh hingga seafood segar 
+            Nikmati cita rasa autentik Sabang, dari makanan khas Aceh hingga seafood segar
             langsung dari laut. Petualangan kuliner yang tak terlupakan menanti Anda!
           </p>
         </div>
@@ -48,23 +48,34 @@ export default async function KulinerPage() {
               {featuredPlaces.map((place: any) => (
                 <Card key={place.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
                   {/* Hero Image */}
-                  <div className="h-64 md:h-80 bg-gradient-to-br from-orange-500 to-red-600 relative">
-                    <div className="absolute inset-0 bg-black bg-opacity-40 flex items-end">
-                      <div className="p-6 text-white">
-                        <h3 className="text-2xl font-bold mb-2">{place.name}</h3>
-                        <div className="flex items-center space-x-4 text-orange-100">
-                          <span>📍 {place.location}</span>
-                          <span>💰 {place.price}</span>
-                        </div>
+                  <div className="h-64 md:h-80 relative overflow-hidden bg-gray-200">
+                    {place.image ? (
+                      <img
+                        src={place.image}
+                        alt={place.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center">
+                        <span className="text-white text-2xl font-bold text-center px-4">
+                          {place.name}
+                        </span>
+                      </div>
+                    )}
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-6">
+                      <h3 className="text-2xl font-bold text-white mb-2">{place.name}</h3>
+                      <div className="flex items-center space-x-4 text-orange-100">
+                        <span>📍 {place.location}</span>
+                        <span>💰 {place.price}</span>
                       </div>
                     </div>
                   </div>
-                  
+
                   <CardContent className="p-6">
                     <p className="text-gray-700 text-lg leading-relaxed mb-4">
                       {place.description}
                     </p>
-                    
+
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-2">
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-100 text-orange-800 capitalize">
@@ -97,21 +108,34 @@ export default async function KulinerPage() {
                   {places.map((place: any) => (
                     <Card key={place.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
                       {/* Image based on category */}
-                      <div className={`h-48 relative ${
-                        category === 'makanan khas' 
-                          ? 'bg-gradient-to-br from-red-400 to-orange-500'
-                          : category === 'seafood'
-                          ? 'bg-gradient-to-br from-blue-400 to-teal-500'
-                          : category === 'minuman'
-                          ? 'bg-gradient-to-br from-amber-400 to-orange-500'
-                          : 'bg-gradient-to-br from-green-400 to-blue-500'
-                      }`}>
-                        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                          <h3 className="text-white text-lg font-semibold text-center px-4">
-                            {place.name}
-                          </h3>
-                        </div>
-                      </div>
+                      <div className="h-48 relative overflow-hidden bg-gray-200">
+    {place.image ? (
+        <img
+            src={place.image}
+            alt={place.name}
+            className="w-full h-full object-cover"
+        />
+    ) : (
+        <div className={`w-full h-full flex items-center justify-center ${
+            category === 'makanan khas' 
+                ? 'bg-gradient-to-br from-red-400 to-orange-500'
+                : category === 'seafood'
+                ? 'bg-gradient-to-br from-blue-400 to-teal-500'
+                : category === 'minuman'
+                ? 'bg-gradient-to-br from-amber-400 to-orange-500'
+                : 'bg-gradient-to-br from-green-400 to-blue-500'
+        }`}>
+            <span className="text-white text-lg font-semibold text-center px-4">
+                {place.name}
+            </span>
+        </div>
+    )}
+    <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+        <span className="text-white text-lg font-semibold text-center px-4">
+            {place.name}
+        </span>
+    </div>
+</div>
 
                       <CardContent className="p-4">
                         <div className="mb-3">
@@ -125,11 +149,11 @@ export default async function KulinerPage() {
                             </span>
                           </div>
                         </div>
-                        
+
                         <p className="text-gray-700 text-sm mb-4 line-clamp-3">
                           {place.description}
                         </p>
-                        
+
                         <Button variant="outline" size="sm" className="w-full">
                           Lihat Detail
                         </Button>

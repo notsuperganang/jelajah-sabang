@@ -1,5 +1,5 @@
-// src/app/akomodasi/page.tsx
 import Link from 'next/link'
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { prisma } from '@/lib/prisma'
@@ -36,10 +36,25 @@ export default async function AkomodasiPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {accommodations.map((accommodation: any) => (
             <Card key={accommodation.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">
-              {/* Image Placeholder */}
-              <div className="h-64 bg-gradient-to-br from-blue-400 to-blue-600 relative">
-                <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center">
-                  <span className="text-white text-lg font-semibold">
+              {/* Image with fallback - simplified version */}
+              <div className="h-64 relative overflow-hidden bg-gray-200">
+                {accommodation.image ? (
+                  <img
+                    src={accommodation.image}
+                    alt={accommodation.name}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                ) : (
+                  // Fallback for no image
+                  <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                    <span className="text-white text-lg font-semibold text-center px-4">
+                      {accommodation.name}
+                    </span>
+                  </div>
+                )}
+                {/* Overlay dengan nama hotel */}
+                <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <span className="text-white text-lg font-semibold text-center px-4">
                     {accommodation.name}
                   </span>
                 </div>

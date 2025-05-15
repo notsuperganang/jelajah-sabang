@@ -201,7 +201,7 @@ export default async function DashboardPage() {
         {/* Bookings List */}
         <div>
           <h2 className="text-lg font-medium text-gray-900 mb-6">My Bookings</h2>
-          
+
           {bookings.length === 0 ? (
             <Card>
               <CardContent className="p-12 text-center">
@@ -226,12 +226,20 @@ export default async function DashboardPage() {
                   <CardContent className="p-0">
                     <div className="md:flex">
                       {/* Image Placeholder */}
-                      <div className="md:w-48 h-48 md:h-auto bg-gradient-to-br from-blue-400 to-blue-600 relative">
-                        <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                          <span className="text-white font-medium text-center px-4">
-                            {booking.accommodation.name}
-                          </span>
-                        </div>
+                      <div className="md:w-48 h-48 md:h-auto relative overflow-hidden bg-gray-200">
+                        {booking.accommodation.image ? (
+                          <img
+                            src={booking.accommodation.image}
+                            alt={booking.accommodation.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                            <span className="text-white font-medium text-center px-4">
+                              {booking.accommodation.name}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Content */}
