@@ -16,19 +16,17 @@ const heroImages = [
   },
   {
     id: 2,
-    src: "https://mediaim.expedia.com/destination/2/c7219add92583f48cd9a2e1baa479e6b.jpg",
-    title: "Pantai Iboih",
-    subtitle:
-      "Surga snorkeling dan diving dengan terumbu karang eksotis dan air laut yang jernih",
+    src: 'https://superlive.id/storage/superadventure/2018/06/28/f26447867e27.jpg',
+    title: 'Pantai Iboih',
+    subtitle: 'Surga snorkeling dan diving dengan terumbu karang eksotis'
   },
   {
     id: 3,
-    src: "https://static.vecteezy.com/system/resources/thumbnails/036/018/452/original/zero-kilometer-monument-of-indonesia-the-landmark-of-sabang-island-popular-tourist-destination-in-asia-free-video.jpg",
-    title: "Kilometer Nol Indonesia",
-    subtitle:
-      "Monumen ikonik di ujung barat NKRI dengan pemandangan Samudera Hindia yang menakjubkan",
-  },
-];
+    src: 'https://cdn.idntimes.com/content-images/community/2019/04/47583974-286757875376269-6794581575839191778-n-1835e127e34f9c071b2006a85a71a277.jpg',
+    title: 'Kilometer Nol Indonesia',
+    subtitle: 'Monumen ikonik di ujung barat NKRI dengan pemandangan Samudera Hindia'
+  }
+]
 
 const HeroSection = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

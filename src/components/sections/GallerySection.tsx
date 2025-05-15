@@ -8,7 +8,7 @@ import { useState } from 'react'
 const galleryImages = [
   {
     id: 1,
-    src: "https://www.safariwisata.co.id/wp-content/uploads/2021/02/Pantai-Iboih-Sabang-7.jpg",
+    src: "https://superlive.id/storage/superadventure/2018/06/28/f26447867e27.jpg",
     alt: "Pantai Iboih dengan air jernih",
     category: "Pantai"
   },
