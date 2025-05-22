@@ -166,7 +166,7 @@ const CTASection = () => {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 font-semibold transition-all duration-300"
+                className="bg-transparent border border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 font-semibold transition-all duration-300"
               >
                 <Link href="/destinasi">
                   Lihat Destinasi

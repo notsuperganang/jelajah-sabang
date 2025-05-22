@@ -13,7 +13,7 @@ export default function HomePage() {
     <div className="font-sans">
       <HeroSection />
       <FeaturedDestinations />
-      <FeaturedAccommodations />
+      {/* <FeaturedAccommodations /> */}
       <WhyChooseSabang />
       <GallerySection />
       <TestimonialsSection />

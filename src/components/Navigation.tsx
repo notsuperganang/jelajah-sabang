@@ -5,6 +5,7 @@ import { useSession, signOut } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,7 +14,7 @@ export default function Navigation() {
   const { data: session } = useSession();
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
-  
+
   // Check if current page is homepage
   const isHomepage = pathname === "/";
 
@@ -62,41 +63,37 @@ export default function Navigation() {
             ? "bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-100"
             : "bg-transparent"
           : "bg-white/95 backdrop-blur-md shadow-2xl border-b border-gray-100"
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                isHomepage
-                  ? isScrolled 
-                    ? "bg-blue-600 group-hover:bg-blue-700" 
-                    : "bg-white/90 backdrop-blur-sm group-hover:bg-white"
-                  : "bg-blue-600 group-hover:bg-blue-700"
-              }`}>
-                <span className={`text-white font-bold text-lg ${
-                  isHomepage && !isScrolled ? "text-blue-600" : "text-white"
-                }`}>
-                  S
-                </span>
+              <div className="relative w-14 h-14 transition-all duration-300">
+                <img
+                  src={
+                    isHomepage
+                      ? isScrolled ? "/logo-biru-no-bg.png" : "/logo-putih-no-bg.png"
+                      : "/logo-biru-no-bg.png"
+                  }
+                  alt="JelajahSabang Logo"
+                  className="w-full h-full object-contain"
+                />
               </div>
               <div className="flex flex-col">
                 <span
-                  className={`text-xl font-bold transition-colors duration-300 ${
-                    isHomepage
+                  className={`text-xl font-bold transition-colors duration-300 ${isHomepage
                       ? isScrolled ? "text-blue-700" : "text-white"
                       : "text-blue-700"
-                  }`}
+                    }`}
                 >
                   JelajahSabang
                 </span>
-                <span 
-                  className={`text-xs font-medium transition-colors duration-300 -mt-1 ${
-                    isHomepage
+                <span
+                  className={`text-xs font-medium transition-colors duration-300 -mt-1 ${isHomepage
                       ? isScrolled ? "text-blue-500" : "text-blue-200"
                       : "text-blue-500"
-                  }`}
+                    }`}
                 >
                   Discover Paradise
                 </span>
@@ -110,24 +107,22 @@ export default function Navigation() {
               <Link
                 key={index}
                 href={item.href}
-                className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${
-                  pathname === item.href
+                className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 group ${pathname === item.href
                     ? isHomepage
                       ? isScrolled
                         ? "text-blue-600 bg-blue-50"
                         : "text-white bg-white/10 backdrop-blur-sm"
                       : "text-blue-600 bg-blue-50"
                     : isHomepage
-                    ? isScrolled
-                      ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                      : "text-white/90 hover:text-white hover:bg-white/10 backdrop-blur-sm"
-                    : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                }`}
+                      ? isScrolled
+                        ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                        : "text-white/90 hover:text-white hover:bg-white/10 backdrop-blur-sm"
+                      : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
+                  }`}
               >
                 {item.name}
-                <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300 ${
-                  pathname === item.href ? "w-6" : "w-0 group-hover:w-6"
-                }`}></span>
+                <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-blue-600 transition-all duration-300 ${pathname === item.href ? "w-6" : "w-0 group-hover:w-6"
+                  }`}></span>
               </Link>
             ))}
 
@@ -137,45 +132,41 @@ export default function Navigation() {
                 {(session.user as any)?.role === "ADMIN" && (
                   <Link
                     href="/admin"
-                    className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 ${
-                      isHomepage
+                    className={`px-3 py-2 rounded-lg font-medium transition-all duration-300 ${isHomepage
                         ? isScrolled
                           ? "text-purple-600 hover:bg-purple-50"
                           : "text-purple-200 hover:bg-white/10 backdrop-blur-sm"
                         : "text-purple-600 hover:bg-purple-50"
-                    }`}
+                      }`}
                   >
                     Admin
                   </Link>
                 )}
-                
+
                 {/* User Dropdown */}
                 <div className="relative" ref={dropdownRef}>
                   <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     onMouseEnter={() => setIsDropdownOpen(true)}
-                    className={`flex items-center space-x-3 px-4 py-2 rounded-full transition-all duration-300 ${
-                      isHomepage
+                    className={`flex items-center space-x-3 px-4 py-2 rounded-full transition-all duration-300 ${isHomepage
                         ? isScrolled
                           ? "bg-gray-100 hover:bg-gray-200 text-gray-700"
                           : "bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white"
                         : "bg-gray-100 hover:bg-gray-200 text-gray-700"
-                    }`}
+                      }`}
                   >
-                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${
-                      isHomepage
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold ${isHomepage
                         ? isScrolled ? "bg-blue-600 text-white" : "bg-white text-blue-600"
                         : "bg-blue-600 text-white"
-                    }`}>
+                      }`}>
                       {session.user?.name?.charAt(0).toUpperCase()}
                     </div>
                     <span className="font-medium">
                       {session.user?.name?.split(' ')[0]}
                     </span>
                     <svg
-                      className={`w-4 h-4 transition-transform duration-200 ${
-                        isDropdownOpen ? "rotate-180" : ""
-                      }`}
+                      className={`w-4 h-4 transition-transform duration-200 ${isDropdownOpen ? "rotate-180" : ""
+                        }`}
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -203,7 +194,7 @@ export default function Navigation() {
                             {session.user?.email}
                           </p>
                         </div>
-                        
+
                         <div className="py-2">
                           <Link
                             href="/dashboard"
@@ -216,7 +207,7 @@ export default function Navigation() {
                             </svg>
                             <span>Dashboard</span>
                           </Link>
-                          
+
                           <button
                             onClick={() => {
                               signOut();
@@ -241,13 +232,12 @@ export default function Navigation() {
                   asChild
                   variant="ghost"
                   size="sm"
-                  className={`${
-                    isHomepage
+                  className={`${isHomepage
                       ? isScrolled
                         ? "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
                         : "text-white hover:bg-white/10 backdrop-blur-sm"
                       : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                  } transition-all duration-300 font-medium px-6 rounded-full`}
+                    } transition-all duration-300 font-medium px-6 rounded-full`}
                 >
                   <Link href="/auth/signin">Login</Link>
                 </Button>
@@ -266,13 +256,12 @@ export default function Navigation() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg transition-all duration-300 ${
-                isHomepage
-                  ? isScrolled 
-                    ? "text-gray-700 hover:bg-gray-100" 
+              className={`p-2 rounded-lg transition-all duration-300 ${isHomepage
+                  ? isScrolled
+                    ? "text-gray-700 hover:bg-gray-100"
                     : "text-white hover:bg-white/10 backdrop-blur-sm"
                   : "text-gray-700 hover:bg-gray-100"
-              }`}
+                }`}
               aria-label="Toggle menu"
             >
               <svg
@@ -316,17 +305,16 @@ export default function Navigation() {
                   <Link
                     key={index}
                     href={item.href}
-                    className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${
-                      pathname === item.href
+                    className={`block px-4 py-3 rounded-lg font-medium transition-all duration-200 ${pathname === item.href
                         ? "text-blue-600 bg-blue-50"
                         : "text-gray-700 hover:text-blue-600 hover:bg-blue-50"
-                    }`}
+                      }`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}
                   </Link>
                 ))}
-                
+
                 {session ? (
                   <>
                     <div className="border-t border-gray-100 mt-3 pt-3">
@@ -338,7 +326,7 @@ export default function Navigation() {
                           {session.user?.email}
                         </p>
                       </div>
-                      
+
                       <Link
                         href="/dashboard"
                         className="block px-4 py-3 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all font-medium"
@@ -346,7 +334,7 @@ export default function Navigation() {
                       >
                         Dashboard
                       </Link>
-                      
+
                       {(session.user as any)?.role === "ADMIN" && (
                         <Link
                           href="/admin"
@@ -356,7 +344,7 @@ export default function Navigation() {
                           Admin
                         </Link>
                       )}
-                      
+
                       <button
                         onClick={() => {
                           signOut();

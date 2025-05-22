@@ -8,7 +8,7 @@ async function main() {
     {
       name: "Pantai Iboih",
       description: "Pantai dengan air jernih, terumbu karang berwarna-warni, dan spot snorkeling terbaik di Sabang. Tempat yang sempurna untuk menikmati keindahan bawah laut Indonesia.",
-      image: "https://superlive.id/storage/superadventure/2018/06/28/f26447867e27.jpg",
+      image: "https://images.app.goo.gl/Te7fTn86fEHKYnxx6",
       location: "Iboih, Sukakarya",
       category: "pantai",
       featured: true
@@ -16,7 +16,7 @@ async function main() {
     {
       name: "Kilometer Nol Indonesia",
       description: "Monumen ikonik di ujung barat Indonesia dengan pemandangan Samudera Hindia yang menakjubkan. Tempat bersejarah yang menandai batas paling barat Nusantara.",
-      image: "https://cdn.antaranews.com/cache/1200x800/2019/11/23/D8A59EEB-434E-4CEC-BD92-0642AC3B587B.jpeg",
+      image: "https://images.app.goo.gl/1e2tFNX9yAKxAbN76",
       location: "Paloh Gadeng",
       category: "sejarah",
       featured: true
@@ -24,7 +24,7 @@ async function main() {
     {
       name: "Benteng Anoi Itam",
       description: "Peninggalan sejarah Perang Dunia II dengan panorama laut yang memukau. Benteng bersejarah dengan arsitektur khas dan pemandangan strategis.",
-      image: "https://asset.kompas.com/crops/311VBTCU_Nh3SfIiNWdmKG770F0=/0x49:1600x1116/1200x800/data/photo/2023/09/23/650f032637023.jpeg",
+      image: "https://images.app.goo.gl/4HYenJ7HahR56dQE9",
       location: "Sabang Kota",
       category: "sejarah",
       featured: true
@@ -32,7 +32,7 @@ async function main() {
     {
       name: "Pantai Sumur Tiga",
       description: "Pantai yang tenang dengan pemandangan sunset yang memukau. Ideal untuk bersantai dan menikmati keindahan alam Sabang.",
-      image: "https://www.safariwisata.co.id/wp-content/uploads/2021/02/Pantai-Sumur-Tiga-Sabang.jpg",
+      image: "https://images.app.goo.gl/p9eRHC6MzrzcnK4u9",
       location: "Jaboi",
       category: "pantai",
       featured: false
@@ -40,7 +40,7 @@ async function main() {
     {
       name: "Goa Sarang",
       description: "Gua alami dengan formasi stalaktit dan stalagmit yang menakjubkan. Destinasi petualangan yang menarix untuk dijelajahi.",
-      image: "https://sabangkota.go.id/images/berita/GI7KaaMnGgbVu7YX_2020_05_20_06_51_26.jpeg",
+      image: "https://images.app.goo.gl/Wpi1SskDxFbWWSiYA",
       location: "Sukajaya",
       category: "alam",
       featured: false
@@ -48,7 +48,7 @@ async function main() {
     {
       name: "Danau Aneuk Laot",
       description: "Danau tawar dengan air yang jernih dan suasana yang tenang, dikelilingi oleh hutan tropis yang asri.",
-      image: "https://www.acehbos.com/wp-content/uploads/2019/08/danau-aneuk-laot-sabang.jpg",
+      image: "https://images.app.goo.gl/XTQvm4BWWi18PDQC6",
       location: "Sukajaya",
       category: "alam",
       featured: false
@@ -56,7 +56,7 @@ async function main() {
     {
       name: "Pantai Tapak Gajah",
       description: "Pantai eksotis dengan batu karang besar yang menyerupai tapak gajah. Tempat yang sempurna untuk fotografi alam.",
-      image: "https://cdn.idntimes.com/content-images/community/2019/08/pantai-tapak-gajah-05be5c9c60ce4fdebe3bef9b3b3a6f54.jpg",
+      image: "https://images.app.goo.gl/SEvbnLqXuCmqTAScA",
       location: "Sukajaya",
       category: "pantai",
       featured: false
@@ -64,7 +64,7 @@ async function main() {
     {
       name: "Air Terjun Pria Laot",
       description: "Air terjun tersembunyi di tengah hutan tropis dengan kolam alami yang jernih. Destinasi yang sempurna untuk trekking.",
-      image: "https://asset.kompas.com/crops/LKLn9iQRBrZphzL9jVqMlnF6Z6g=/0x0:1000x667/1200x800/data/photo/2020/08/11/5f321dc56de95.jpg",
+      image: "https://images.app.goo.gl/RvAbBy32D5wS4n8E6",
       location: "Jaboi",
       category: "alam",
       featured: false
@@ -72,7 +72,7 @@ async function main() {
     {
       name: "Benteng Anoi Itam",
       description: "Menara pengawas bersejarah dengan pemandangan 360 derajat Kota Sabang dan laut sekitarnya.",
-      image: "https://1.bp.blogspot.com/-JH6ZOeDBOa4/XgI8qnFfThI/AAAAAAAABO8/VgvpzFRp1z8bNr8YX5SiXTNd0SSkpJ7KgCLcBGAsYHQ/s1600/sabang.jpg",
+      image: "https://images.app.goo.gl/4HYenJ7HahR56dQE9",
       location: "Sabang Kota",
       category: "sejarah",
       featured: false
@@ -80,7 +80,7 @@ async function main() {
     {
       name: "Pantai Jaboi",
       description: "Pantai dengan ombak yang tenang dan pasir putih bersih. Ideal untuk bermain air dan bersantai bersama keluarga.",
-      image: "https://sabangkota.go.id/images/berita/y7JbYqwIRKwqjWDy_2019_12_09_07_21_35.jpg",
+      image: "https://images.app.goo.gl/VZ3sYH2W33fVk5Ka7",
       location: "Jaboi",
       category: "pantai",
       featured: false
@@ -92,7 +92,7 @@ async function main() {
     {
       name: "Mie Aceh Sabang Titi Bobrok",
       description: "Mie Aceh autentik dengan bumbu rempah yang kuat dan topping daging kambing atau seafood segar. Warung legendaris di Sabang.",
-      image: "https://img-global.cpcdn.com/recipes/fa2c78705bbb8d02/1200x630cq70/photo.jpg",
+      image: "https://i0.wp.com/makanmana.net/wp-content/uploads/2007/11/mie-aceh-titi-bobrok.jpg",
       location: "Jl. Teuku Umar, Sabang",
       price: "Rp 15.000 - 25.000",
       category: "makanan khas",
@@ -101,7 +101,7 @@ async function main() {
     {
       name: "Seafood Pantai Iboih Floating Restaurant",
       description: "Restoran terapung dengan seafood segar langsung dari laut. Menikmati makanan sambil merasakan deburan ombak.",
-      image: "https://asset.kompas.com/crops/5HS8vIKPqGPRw_OjQOvr_nYgqnw=/0x0:1000x667/1200x800/data/photo/2021/06/15/60c83f5b6d64b.jpg",
+      image: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2023/12/23/2255676321.jpg",
       location: "Pantai Iboih",
       price: "Rp 50.000 - 150.000",
       category: "seafood",
@@ -110,7 +110,7 @@ async function main() {
     {
       name: "Kopi Gayo Sabang Heritage",
       description: "Kedai kopi dengan biji kopi Gayo premium yang diseduh tradisional. Suasana vintage dengan pemandangan laut.",
-      image: "https://sabangkota.go.id/images/berita/A7FcC4xUk4VNlGSa_2020_02_12_05_36_09.jpeg",
+      image: "https://ulasan.co/wp-content/uploads/2024/09/Bintan_Kedai-Kopi-Gudang-Ketam-Sei-Enam-Kijang.jpeg",
       location: "Pusat Kota Sabang",
       price: "Rp 8.000 - 15.000",
       category: "minuman",
@@ -119,7 +119,7 @@ async function main() {
     {
       name: "Nasi Gurih Bu Wati",
       description: "Nasi gurih khas Aceh dengan lauk-pauk tradisional. Sarapan favorit warga lokal dengan cita rasa autentik.",
-      image: "https://cdn0-production-images-kly.akamaized.net/lQ7O8VQwEWKf6kAfJHOm_2Y4LFE=/1200x675/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/3171052/original/055168000_1595831932-shutterstock_1104163067.jpg",
+      image: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/720x0/webp/photo/2023/04/06/1928678704.jpg",
       location: "Jl. Prof. A. Majid Ibrahim",
       price: "Rp 10.000 - 18.000",
       category: "makanan khas",
@@ -128,7 +128,7 @@ async function main() {
     {
       name: "Sate Kambing Pak Yusuf",
       description: "Sate kambing dengan bumbu kacang khas Aceh yang gurih dan pedas. Daging kambing empuk dengan rasa yang meresap.",
-      image: "https://cdn.yummy.co.id/content-images/images/20210729/4JvAFnLAEsIlgKZD2Lx0Zc6b7UJ3Av6R-31363934343736373539d41d8cd98f00b204e9800998ecf8427e.jpg",
+      image: "https://assets-pergikuliner.com/VOruO_1ArzXHMBPn330vMDm-haM=/770x580/smart/filters:no_upscale()/https://assets-pergikuliner.com/uploads/image/picture/2797878/picture-1674106770.jpg",
       location: "Jl. Diponegoro",
       price: "Rp 25.000 - 40.000",
       category: "makanan khas",
@@ -137,7 +137,7 @@ async function main() {
     {
       name: "Es Kelapa Muda Pantai",
       description: "Kelapa muda segar langsung dari pohon dengan es serut. Minuman penyegar yang sempurna untuk cuaca tropis.",
-      image: "https://cdn.idntimes.com/content-images/duniaku/post/20210709/120316847-2718442048398717-2516194644746967932-n-4abce6e5c5d3b4b6aa0a63d4f33ad9b8.jpg",
+      image: "https://pbs.twimg.com/media/DMpUyaSVAAAuRzK.jpg:large",
       location: "Sepanjang Pantai Sabang",
       price: "Rp 5.000 - 10.000",
       category: "minuman",
@@ -146,7 +146,7 @@ async function main() {
     {
       name: "Rumah Makan Terapung Iboih",
       description: "Masakan seafood segar dengan pemandangan bawah laut melalui lantai kaca. Experience dining yang unik di Sabang.",
-      image: "https://asset.kompas.com/crops/gpoiwgFOiDm2hIQRQcVr6g2mKgU=/0x0:1000x667/1200x800/data/photo/2020/08/11/5f321dc56de95.jpg",
+      image: "https://images.trvl-media.com/lodging/35000000/34600000/34599900/34599842/7475de32.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
       location: "Pantai Iboih",
       price: "Rp 75.000 - 200.000",
       category: "seafood",
@@ -155,7 +155,7 @@ async function main() {
     {
       name: "Ayam Tangkap Bu Siti",
       description: "Ayam tangkap khas Aceh dengan bumbu rica-rica dan sayur-mayur segar. Hidangan yang pedas dan menggugah selera.",
-      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ayam_tangkap.jpg/1200px-Ayam_tangkap.jpg",
+      image: "https://asset.kompas.com/crops/RdAQJ7agYpGn-hRpCL1XPzi7yZQ=/0x58:1000x724/1200x800/data/photo/2020/07/19/5f13fe03a9f06.jpg",
       location: "Jl. Cut Nyak Dhien",
       price: "Rp 20.000 - 35.000",
       category: "makanan khas",
@@ -164,7 +164,7 @@ async function main() {
     {
       name: "Warung Kopi Tepi Laut",
       description: "Kedai kopi sederhana dengan pemandangan laut langsung. Menu kopi tradisional dan cemilan lokal.",
-      image: "https://sabangkota.go.id/images/berita/tZzWACQ8FG5TGhrP_2019_11_20_08_48_40.jpeg",
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/29/f2/3e/97/caption.jpg?w=800&h=800&s=1",
       location: "Pantai Teupin Layeu",
       price: "Rp 5.000 - 12.000",
       category: "minuman",
@@ -173,7 +173,7 @@ async function main() {
     {
       name: "Ikan Bakar Pantai Sumur Tiga",
       description: "Ikan bakar segar dengan bumbu khas Aceh. Disajikan di tepi pantai dengan suasana sunset yang romantis.",
-      image: "https://asset.kompas.com/crops/J9Bq_fIEYdPxAVE_lWlR6cUh2Fg=/0x0:1000x667/1200x800/data/photo/2020/08/11/5f321dc56de95.jpg",
+      image: "https://cdn.antaranews.com/cache/1200x800/2022/05/07/IMG_20220507_200346.jpg",
       location: "Pantai Sumur Tiga",
       price: "Rp 30.000 - 60.000",
       category: "seafood",
@@ -218,7 +218,7 @@ async function main() {
       description: "Bungalow tradisional dengan suasana alami dan pemandangan pantai. Design yang menyatu dengan alam sekitar.",
       address: "Pantai Teupin Layeu, Sabang",
       price: 200000,
-      image: "https://agoda-images.agoda.net/images/2084/2084651_17050312210052636930.jpg",
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/13/00/76/02/apollo-bungalows.jpg?w=900&h=500&s=1",
       rating: 3.8,
       amenities: ["WiFi", "Fan", "Garden View", "Beach Access"],
       available: true
@@ -228,7 +228,7 @@ async function main() {
       description: "Resort di atas bukit dengan pemandangan panoramik kota Sabang dan laut. Suasana sejuk dan tenang jauh dari keramaian.",
       address: "Pucok Krueng, Sabang",
       price: 400000,
-      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/280662964.jpg?k=8d46b0e4e33b1a5b5b7d3e5e5d4b0f7b2f3a8c9e&o=&hp=1",
+      image: "https://images.trvl-media.com/lodging/23000000/22800000/22792300/22792295/69f62a6b.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
       rating: 4.3,
       amenities: ["WiFi", "AC", "Pool", "Restaurant", "Spa", "Hiking Trails"],
       available: true
@@ -238,7 +238,7 @@ async function main() {
       description: "Guesthouse sederhana dekat dengan benteng bersejarah Anoi Itam. Lokasi strategis dengan harga terjangkau.",
       address: "Jl. Anoi Itam, Sabang",
       price: 120000,
-      image: "https://sabangkota.go.id/images/berita/A1HvYmRXSbsV4C8L_2020_01_15_02_45_32.jpeg",
+      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/207525758.jpg?k=005465a3cde2027443582b1e588d5675636d946a92581e9ff87adc67055c4d8b&o=&hp=1",
       rating: 3.5,
       amenities: ["WiFi", "Fan", "Shared Bathroom", "Historical Tour"],
       available: true
@@ -248,7 +248,7 @@ async function main() {
       description: "Resort yang menghadap ke Pantai Sumur Tiga dengan sunset view yang menakjubkan. Perfect untuk honeymoon dan family vacation.",
       address: "Pantai Sumur Tiga, Jaboi",
       price: 350000,
-      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/187654321.jpg?k=4d6b4e3f5b7e8c9d&o=&hp=1",
+      image: "https://q-xx.bstatic.com/xdata/images/hotel/840x460/632803997.jpg?k=3e916a48d2b05a4a19913c341c5d8d9eb9ad2fe7d70a63684ce12d63454422d1&o=",
       rating: 4.1,
       amenities: ["WiFi", "AC", "Beachfront", "Restaurant", "Bar", "Water Sports"],
       available: true
@@ -258,7 +258,7 @@ async function main() {
       description: "Hostel modern dengan fasilitas lengkap untuk traveler muda. Suasana backpacker yang fun dengan harga bersahabat.",
       address: "Jl. Professor A. Majid Ibrahim, Sabang",
       price: 80000,
-      image: "https://sabangkota.go.id/images/berita/B5JzNqDdT8KcP9HL_2019_12_20_04_23_55.jpeg",
+      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/233747003.jpg?k=38022e0aca9b70e85589442a89b78fcda275cffced32b4d79719a1d045d5a044&o=&hp=1",
       rating: 3.9,
       amenities: ["WiFi", "AC", "Shared Kitchen", "Common Room", "Laundry"],
       available: true
@@ -268,7 +268,7 @@ async function main() {
       description: "Lodge eco-friendly di tengah hutan dengan konsep back to nature. Ideal untuk eco-tourism dan forest bathing.",
       address: "Kawasan Jaboi, Sukajaya",
       price: 250000,
-      image: "https://asset.kompas.com/crops/WeNqw8F5Sb4L9HzPm6vG4jYkAw0=/0x0:1000x667/1200x800/data/photo/2020/08/11/5f321dc56de95.jpg",
+      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/177523302.jpg?k=3886a0a31efed2f9aec01452132268932a44ce113fff0029f1c233d36fc06415&o=&hp=1",
       rating: 4.0,
       amenities: ["WiFi", "Fan", "Nature View", "Trekking Guide", "Bird Watching"],
       available: true
@@ -278,7 +278,7 @@ async function main() {
       description: "Hotel heritage dengan arsitektur kolonial yang telah direnovasi. Lokasi dekat dengan Monumen Kilometer Nol Indonesia.",
       address: "Paloh Gadeng, Sabang",
       price: 280000,
-      image: "https://sabangkota.go.id/images/berita/GI7KaaMnGgbVu7YX_2020_05_20_06_51_26.jpeg",
+      image: "https://cf.bstatic.com/xdata/images/hotel/max1024x768/644820122.jpg?k=990937819584ce1829c8cc6de22930fd5551a593d26ffa6ec7034503f0fdb702&o=&hp=1",
       rating: 3.7,
       amenities: ["WiFi", "AC", "Historical Tours", "Restaurant", "Cultural Programs"],
       available: true
